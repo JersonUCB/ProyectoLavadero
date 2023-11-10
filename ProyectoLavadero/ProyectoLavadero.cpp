@@ -3,7 +3,7 @@
 
 int main()
 {
-    AdmiLavadero* lavadero = new AdmiLavadero();
-    lavadero->run();
+    AdmiLavadero lavadero;
+    lavadero.run();
     return 0;
 }
