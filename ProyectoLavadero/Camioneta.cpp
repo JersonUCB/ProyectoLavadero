@@ -1,7 +1,8 @@
 #include "Camioneta.h"
 
+
 Camioneta::Camioneta(string placa, string marca, string modelo, int anio, string estado, bool cargaAbierta)
-    : Vehiculo(placa, marca, modelo, anio, estado) 
+    : Vehiculo(placa, marca, modelo, anio, estado)
 {
     this->cargaAbierta = cargaAbierta;
 }

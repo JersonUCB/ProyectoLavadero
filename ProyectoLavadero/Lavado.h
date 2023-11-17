@@ -16,7 +16,7 @@ private:
 	Cliente* cliente;
 	Trabajador* trabajador;
 
-	
+
 	double costoLavado;
 
 public:
@@ -26,6 +26,3 @@ public:
 	void mostrar();
 	double getCostoLavado();
 };
-
-
-

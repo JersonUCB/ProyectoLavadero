@@ -13,7 +13,7 @@ protected:
 
 public:
 
-    Vehiculo(string placa, string marca, string modelo,int anio, string estado);
+    Vehiculo(string placa, string marca, string modelo, int anio, string estado);
     ~Vehiculo();
 
     virtual string getEstado() = 0;

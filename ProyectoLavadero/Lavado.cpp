@@ -1,4 +1,5 @@
 #include "Lavado.h"
+#include "Lavado.h"
 
 Lavado::Lavado(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador, string tipo, double costoLavado)
 {
@@ -37,5 +38,5 @@ void Lavado::mostrar() {
 
 double Lavado::getCostoLavado()
 {
-	return costoLavado;
+    return costoLavado;
 }

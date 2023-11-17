@@ -1,4 +1,5 @@
 #include "Cliente.h"
+#include "Cliente.h"
 
 Cliente::Cliente(int id, string nombre, string telefono, string TipoCliente) :Persona(id, nombre, telefono)
 {
@@ -11,5 +12,6 @@ Cliente::~Cliente()
 
 string  Cliente::getTipoCliente()
 {
+
     return TipoCliente;
 }

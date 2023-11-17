@@ -1,5 +1,6 @@
 #include "Moto.h"
 
+
 Moto::Moto(string placa, string marca, string modelo, int anio, string estado, bool electrica)
     : Vehiculo(placa, marca, modelo, anio, estado)
 {

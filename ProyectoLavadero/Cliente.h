@@ -11,5 +11,3 @@ public:
 private:
     string TipoCliente;
 };
-
-

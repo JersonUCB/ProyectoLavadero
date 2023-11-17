@@ -1,4 +1,5 @@
 #include "AdmiLavadero.h"
+#include "AdmiLavadero.h"
 #include <algorithm>  // Para incluir la función sort
 
 void AdmiLavadero::showMenu()
@@ -6,9 +7,12 @@ void AdmiLavadero::showMenu()
 	int option;
 	do {
 		cout << "1. Registrar nuevo vehiculo" << endl;
-		cout << "2. Lavar un vehiculo " << endl;
-		cout << "3. Mostrar todos los datos de los vehiculos que se han lavado" << endl;
-		cout << "4. Obtener el beneficio total" << endl;
+		cout << "2. Registrar nuevo Trabajador" << endl;
+		cout << "3. Registrar nuevo Cliente" << endl;
+		cout << "4. Lavar un vehiculo " << endl;
+		cout << "5. Mostrar todos los datos de los vehiculos que se han lavado" << endl;
+		cout << "6. Obtener el beneficio total" << endl;
+		
 
 
 		cout << "Digite una opcion: " << endl;
@@ -27,7 +31,7 @@ void AdmiLavadero::showMenu()
 
 		case 2:
 		{
-			washVehicle();
+			registerNewEmployee();
 			system("pause");
 			system("cls");
 			break;
@@ -35,7 +39,7 @@ void AdmiLavadero::showMenu()
 
 		case 3:
 		{
-			showWashedVehicles();
+			registerNewClient();
 			system("pause");
 			system("cls");
 			break;
@@ -44,7 +48,21 @@ void AdmiLavadero::showMenu()
 
 		case 4:
 		{
-			getTotalProfit();
+			washVehicle();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 5:
+		{
+			showWashedVehicles();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 6:
+		{
+		    getTotalProfit();
 			system("pause");
 			system("cls");
 			break;
@@ -136,7 +154,7 @@ void AdmiLavadero::registerNewVehicle() {
 		nuevoVehiculo = new Automovil(placa, marca, modelo, anio, "en espera", numPuertas);
 		break;
 	}
-		
+
 	case 2:
 		bool esElectrica;
 		cout << "¿Es la moto electrica? (1 para Si / 0 para No): ";
@@ -158,6 +176,52 @@ void AdmiLavadero::registerNewVehicle() {
 	cout << "Vehiculo registrado con exito." << endl;
 }
 
+void AdmiLavadero::registerNewEmployee()
+{
+	int id;
+	string nombre, telefono, cargo;
+	float salario;
+	cout << "Ingrese id del Trabajador: ";
+	cin >> id;
+	cout << "Ingrese Nombre del Trabajador: ";
+	cin >> nombre;
+	cout << "Ingrese Telefono del Trabajador: ";
+	cin >> telefono;
+	cout << "Ingrese Cargo del Trabajador: ";
+	cin >> cargo;
+	cout << "Ingrese salario del Trabajador";
+	cin >> salario;
+
+	Trabajador* trabajador;
+
+	trabajador = new Trabajador(id, nombre, telefono, cargo, salario);
+	trabajadores.push_back(trabajador);
+	cout << "El trabajador ha sido registrado" << endl;
+}
+
+void AdmiLavadero::registerNewClient()
+{
+	int id;
+	string nombre, telefono, TipoCliente;
+	cout << "Ingrese id del Cliente: ";
+	cin >> id;
+	cout << "Ingrese Nombre del Cliente: ";
+	cin >> nombre;
+	cout << "Ingrese Telefono del Cliente: ";
+	cin >> telefono;
+	cout << "Ingrese si el Tipo de Cliente (el tipo puede ser Estandar o Premium) : ";
+	cin >> TipoCliente;
+
+	Cliente* cliente;
+
+	cliente = new Cliente (id, nombre, telefono, TipoCliente);
+	clientes.push_back(cliente);
+	cout << "El Cliente ha sido registrado" << endl;
+
+
+}
+
+
 void AdmiLavadero::washVehicle() {
 	string placa;
 	cout << "Ingrese la placa del vehiculo a lavar: ";
@@ -169,7 +233,7 @@ void AdmiLavadero::washVehicle() {
 	if (it != vehiculos.end()) {
 		(*it)->setEstado("lavado");
 
-		// Aquí deberías tener lógica para asignar un trabajador disponible.
+
 		Trabajador* trabajadorAsignado = trabajadores[0];
 
 		lavados.push_back(new Lavado(*it, cliente, trabajadorAsignado, "tipo_de_lavado", (*it)->calcularCosto()));

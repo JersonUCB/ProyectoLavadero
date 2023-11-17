@@ -1,3 +1,4 @@
+
 #pragma once
 #include "Cliente.h"
 #include "Trabajador.h"
@@ -23,6 +24,8 @@ private:
 
 	void showMenu();
 	void registerNewVehicle();
+	void registerNewEmployee();
+	void registerNewClient();
 	void washVehicle();
 	void showWashedVehicles();
 	void getTotalProfit();
@@ -36,4 +39,3 @@ public:
 	void run();
 
 };
-
