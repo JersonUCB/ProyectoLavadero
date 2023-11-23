@@ -15,3 +15,12 @@ string  Cliente::getTipoCliente()
 
     return TipoCliente;
 }
+
+void Cliente::mostrar()
+{
+    cout << "-----> Cliente <-----" << endl;
+    cout << "id: " << id << endl;
+    cout << "nombre: " << nombre << endl;
+    cout << "telefono: " << telefono << endl;
+    cout << "tipo de cliente: " << TipoCliente << endl;
+}

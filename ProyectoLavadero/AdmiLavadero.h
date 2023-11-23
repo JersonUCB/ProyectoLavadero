@@ -8,14 +8,22 @@
 #include "Automovil.h"
 #include "Moto.h"
 #include "Camioneta.h"
+#include "StaticLocalLoader.h"
+#include "Consola.h"
 
 class AdmiLavadero
 {
 private:
 	vector<Vehiculo*> vehiculos;
+	vector<Automovil*> automoviles;
+	vector<Moto*> motos;
+	vector<Camioneta*> camionetas;
+
 	vector<Cliente*> clientes;
 	vector<Trabajador*> trabajadores;
 	vector<Lavado*> lavados;
+	StaticLocalLoader datos;
+	Consola consola;
 
 	Vehiculo* vehiculo;
 	Cliente* cliente;
@@ -29,6 +37,10 @@ private:
 	void washVehicle();
 	void showWashedVehicles();
 	void getTotalProfit();
+
+	void showCliente();
+	void showEmployee();
+	void showVehicle();
 
 
 public:

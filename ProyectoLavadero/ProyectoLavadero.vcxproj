@@ -131,10 +131,13 @@
     <ClCompile Include="Automovil.cpp" />
     <ClCompile Include="Camioneta.cpp" />
     <ClCompile Include="Cliente.cpp" />
+    <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Lavado.cpp" />
+    <ClCompile Include="LocalLoader.cpp" />
     <ClCompile Include="Moto.cpp" />
     <ClCompile Include="Persona.cpp" />
     <ClCompile Include="ProyectoLavadero.cpp" />
+    <ClCompile Include="StaticLocalLoader.cpp" />
     <ClCompile Include="Trabajador.cpp" />
     <ClCompile Include="Vehiculo.cpp" />
   </ItemGroup>
@@ -143,9 +146,12 @@
     <ClInclude Include="Automovil.h" />
     <ClInclude Include="Camioneta.h" />
     <ClInclude Include="Cliente.h" />
+    <ClInclude Include="Consola.h" />
     <ClInclude Include="Lavado.h" />
+    <ClInclude Include="LocalLoader.h" />
     <ClInclude Include="Moto.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="StaticLocalLoader.h" />
     <ClInclude Include="Trabajador.h" />
     <ClInclude Include="Vehiculo.h" />
   </ItemGroup>

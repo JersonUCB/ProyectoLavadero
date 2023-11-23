@@ -1,6 +1,8 @@
+#pragma once
 #include "Vehiculo.h"
 
-class Automovil : public Vehiculo {
+class Automovil : public Vehiculo 
+{
 private:
     int numeroPuertas;
 

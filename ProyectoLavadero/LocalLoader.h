@@ -13,9 +13,9 @@ public:
 	~LocalLoader();
 	virtual vector<Camioneta*> vectorCamioneta();
 	virtual vector<Automovil*> vectorAutomovil();
-	virtual vector<Cliente*> vectorCliente();
 	virtual vector<Moto*> vectorMoto();
+	virtual vector<Vehiculo*> vectorVehiculo();
+	virtual vector<Cliente*> vectorCliente();
 	virtual vector<Trabajador*> vectorTrabajador();
 };
-
 

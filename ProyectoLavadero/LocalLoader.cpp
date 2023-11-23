@@ -28,6 +28,11 @@ vector<Moto*> LocalLoader::vectorMoto()
 	return vector<Moto*>();
 }
 
+vector<Vehiculo*> LocalLoader::vectorVehiculo()
+{
+	return vector<Vehiculo*>();
+}
+
 vector<Trabajador*> LocalLoader::vectorTrabajador()
 {
 	return vector<Trabajador*>();

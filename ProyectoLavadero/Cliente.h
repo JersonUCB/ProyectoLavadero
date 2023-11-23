@@ -8,6 +8,8 @@ public:
 
     string getTipoCliente();
     //Lavado* lavado;
+    void mostrar();
 private:
     string TipoCliente;
+    
 };

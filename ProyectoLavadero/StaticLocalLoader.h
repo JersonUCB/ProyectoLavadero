@@ -8,8 +8,10 @@ public:
 	~StaticLocalLoader();
 	 vector<Camioneta*> vectorCamioneta();
 	 vector<Automovil*> vectorAutomovil();
-	 vector<Cliente*> vectorCliente();
 	 vector<Moto*> vectorMoto();
+	 vector<Vehiculo*> vectorVehiculo();
+	 vector<Cliente*> vectorCliente();
 	 vector<Trabajador*> vectorTrabajador();
 };
+
 

@@ -1,22 +1,12 @@
 #include "AdmiLavadero.h"
-#include "AdmiLavadero.h"
+//#include "AdmiLavadero.h"
 #include <algorithm>  // Para incluir la función sort
 
 void AdmiLavadero::showMenu()
 {
 	int option;
 	do {
-		cout << "1. Registrar nuevo vehiculo" << endl;
-		cout << "2. Registrar nuevo Trabajador" << endl;
-		cout << "3. Registrar nuevo Cliente" << endl;
-		cout << "4. Lavar un vehiculo " << endl;
-		cout << "5. Mostrar todos los datos de los vehiculos que se han lavado" << endl;
-		cout << "6. Obtener el beneficio total" << endl;
-		
-
-
-		cout << "Digite una opcion: " << endl;
-		cout << "0. Salir" << endl;
+		consola.showMenu();
 		cin >> option;
 
 		switch (option)
@@ -67,7 +57,27 @@ void AdmiLavadero::showMenu()
 			system("cls");
 			break;
 		}
-
+		case 16:
+		{
+			showCliente();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 17:
+		{
+			showEmployee();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 18:
+		{
+			showVehicle();
+			system("pause");
+			system("cls");
+			break;
+		}
 		default:
 			break;
 		}
@@ -80,6 +90,15 @@ AdmiLavadero::AdmiLavadero()
 	this->cliente = nullptr;
 	this->trabajador = nullptr;
 	this->costoLavado = 0.01;
+	//StaticLocalLoader
+	trabajadores = datos.vectorTrabajador();
+	clientes = datos.vectorCliente();
+	vehiculos = datos.vectorVehiculo();
+
+	automoviles = datos.vectorAutomovil();
+	motos = datos.vectorMoto();
+	camionetas = datos.vectorCamioneta();
+
 }
 
 AdmiLavadero::AdmiLavadero(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador, double costoLavado)
@@ -135,37 +154,29 @@ void AdmiLavadero::registerNewVehicle() {
 	cout << "Ingrese el anio del vehiculo: ";
 	cin >> anio;
 
-	int tipoVehiculo;
-	cout << "Seleccione el tipo de vehiculo:" << endl;
-	cout << "1. Automovil" << endl;
-	cout << "2. Moto" << endl;
-	cout << "3. Camioneta" << endl;
-	cout << "Ingrese la opción: ";
-	cin >> tipoVehiculo;
-
 	Vehiculo* nuevoVehiculo = nullptr;
 
-	switch (tipoVehiculo) {
+	int opcion = consola.tipoVehiculo();
+	switch (opcion) {
 	case 1:
 	{
-		int numPuertas;
-		cout << "Ingrese el numero de puertas del automovil: ";
-		cin >> numPuertas;
+		int numPuertas=consola.numeroPuertas();
 		nuevoVehiculo = new Automovil(placa, marca, modelo, anio, "en espera", numPuertas);
+		this->automoviles.push_back(new Automovil(placa, marca, modelo, anio, "en espera", numPuertas));
 		break;
 	}
 
 	case 2:
 		bool esElectrica;
-		cout << "¿Es la moto electrica? (1 para Si / 0 para No): ";
-		cin >> esElectrica;
+		esElectrica= consola.motoElectrica();
 		nuevoVehiculo = new Moto(placa, marca, modelo, anio, "en espera", esElectrica);
+		this->motos.push_back(new Moto(placa, marca, modelo, anio, "en espera", esElectrica));
 		break;
 	case 3:
 		bool cargaAbierta;
-		cout << "¿Es la camioneta de carga abierta? (1 para Si / 0 para No): ";
-		cin >> cargaAbierta;
+		cargaAbierta= consola.cajaCubierta();
 		nuevoVehiculo = new Camioneta(placa, marca, modelo, anio, "en espera", cargaAbierta);
+		this->camionetas.push_back(new Camioneta(placa, marca, modelo, anio, "en espera", cargaAbierta));
 		break;
 	default:
 		cout << "Opcion no valida." << endl;
@@ -178,47 +189,18 @@ void AdmiLavadero::registerNewVehicle() {
 
 void AdmiLavadero::registerNewEmployee()
 {
-	int id;
-	string nombre, telefono, cargo;
-	float salario;
-	cout << "Ingrese id del Trabajador: ";
-	cin >> id;
-	cout << "Ingrese Nombre del Trabajador: ";
-	cin >> nombre;
-	cout << "Ingrese Telefono del Trabajador: ";
-	cin >> telefono;
-	cout << "Ingrese Cargo del Trabajador: ";
-	cin >> cargo;
-	cout << "Ingrese salario del Trabajador";
-	cin >> salario;
-
 	Trabajador* trabajador;
-
-	trabajador = new Trabajador(id, nombre, telefono, cargo, salario);
+	trabajador = consola.showRegisterNewEmployee();
 	trabajadores.push_back(trabajador);
 	cout << "El trabajador ha sido registrado" << endl;
 }
 
 void AdmiLavadero::registerNewClient()
 {
-	int id;
-	string nombre, telefono, TipoCliente;
-	cout << "Ingrese id del Cliente: ";
-	cin >> id;
-	cout << "Ingrese Nombre del Cliente: ";
-	cin >> nombre;
-	cout << "Ingrese Telefono del Cliente: ";
-	cin >> telefono;
-	cout << "Ingrese si el Tipo de Cliente (el tipo puede ser Estandar o Premium) : ";
-	cin >> TipoCliente;
-
 	Cliente* cliente;
-
-	cliente = new Cliente (id, nombre, telefono, TipoCliente);
+	cliente = consola.showRegisterNewClient();
 	clientes.push_back(cliente);
 	cout << "El Cliente ha sido registrado" << endl;
-
-
 }
 
 
@@ -261,4 +243,28 @@ void AdmiLavadero::getTotalProfit() {
 	double beneficioFinal = beneficioTotal * 0.65;
 
 	cout << "El beneficio total es: $" << beneficioFinal << endl;
+}
+
+void AdmiLavadero::showCliente()
+{
+	for (Cliente* var : clientes)
+	{
+		var->mostrar();
+	}
+}
+
+void AdmiLavadero::showEmployee()
+{
+	for (Trabajador* var : trabajadores)
+	{
+		var->mostrar();
+	}
+}
+
+void AdmiLavadero::showVehicle()
+{
+	for (Vehiculo* var : vehiculos)
+	{
+		var->mostrar();
+	}
 }

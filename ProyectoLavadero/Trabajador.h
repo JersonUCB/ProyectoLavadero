@@ -7,10 +7,9 @@ public:
 	~Trabajador();
 	string getCargo();
 	float getSalario();
+	void mostrar();
 private:
 	string cargo;
 	float salario;
-
-
 };
 

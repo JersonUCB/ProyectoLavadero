@@ -53,6 +53,30 @@ vector<Moto*> StaticLocalLoader::vectorMoto()
 	return motos;
 }
 
+vector<Vehiculo*> StaticLocalLoader::vectorVehiculo()
+{
+	vector<Vehiculo*> vehiculos;
+	vehiculos.push_back(new Automovil("JKL012", "Honda", "Civic", 2022, "Lavado", 4));
+	vehiculos.push_back(new Automovil("MNO345", "Ford", "Focus", 2023, "En espera", 5));
+	vehiculos.push_back(new Automovil("PQR678", "Toyota", "Corolla", 2021, "Lavado", 3));
+	vehiculos.push_back(new Automovil("STU901", "Chevrolet", "Malibu", 2022, "En espera", 4));
+	vehiculos.push_back(new Automovil("VWX234", "Nissan", "Altima", 2023, "Lavado", 5));
+
+	vehiculos.push_back(new Moto("ABC001", "Honda", "CBR300", 2022, "En espera", true));
+	vehiculos.push_back(new Moto("DEF002", "Yamaha", "YZF-R6", 2023, "Lavado", false));
+	vehiculos.push_back(new Moto("GHI003", "Suzuki", "GSX-R750", 2021, "En espera", true));
+	vehiculos.push_back(new Moto("JKL004", "Kawasaki", "Ninja 650", 2022, "Lavado", false));
+	vehiculos.push_back(new Moto("MNO005", "Ducati", "Monster 821", 2023, "En espera", true));
+
+	vehiculos.push_back(new Camioneta("ABC123", "Toyota", "Hilux", 2022, "en espera", true));
+	vehiculos.push_back(new Camioneta("DEF456", "Ford", "Ranger", 2023, "en espera", false));
+	vehiculos.push_back(new Camioneta("GHI789", "Chevrolet", "Colorado", 2021, "en espera", true));
+	vehiculos.push_back(new Camioneta("KJF345", "NISSAN", "Nide", 2021, "en espera", true));
+	vehiculos.push_back(new Camioneta("GHI789", "Ford", "Colorado", 2021, "en espera", false));
+
+	return vehiculos;
+}
+
 vector<Trabajador*> StaticLocalLoader::vectorTrabajador()
 {
      vector<Trabajador*> trabajadores;

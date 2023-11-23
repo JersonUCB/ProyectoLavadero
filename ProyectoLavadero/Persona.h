@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -16,5 +16,6 @@ public:
     int getId();
     string getNombre();
     string getTelefono();
+    virtual void mostrar() = 0;
 };
 
