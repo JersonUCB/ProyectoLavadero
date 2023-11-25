@@ -15,10 +15,10 @@ public:
 
     Vehiculo(string placa, string marca, string modelo, int anio, string estado);
     ~Vehiculo();
-
-    virtual string getEstado() = 0;
-    virtual string getPlaca() = 0;
-    virtual string getModelo() = 0;
+    virtual string getMarca();
+    virtual string getEstado();
+    virtual string getPlaca();
+    virtual string getModelo();
     virtual void setEstado(string newEstado) = 0;
     virtual void mostrar();   //El virtual llama a las clases hija cuando desde alquiler llamemos a vehiculo
 

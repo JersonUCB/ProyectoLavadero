@@ -45,5 +45,5 @@ double Camioneta::calcularCosto() {
 
 void Camioneta::mostrar() {
     Vehiculo::mostrar();
-    cout << "Carga abierta: " << (cargaAbierta ? "Sí" : "No") << endl;
+    cout << "Carga abierta: " << (cargaAbierta ? "Si" : "No") << endl;
 }

@@ -3,7 +3,7 @@
 
 int main()
 {
-    AdmiLavadero lavadero;
-    lavadero.run();
+    AdmiLavadero bobEsponjaWash;
+    bobEsponjaWash.run();
     return 0;
 }

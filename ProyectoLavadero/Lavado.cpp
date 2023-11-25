@@ -1,37 +1,48 @@
 #include "Lavado.h"
 #include "Lavado.h"
 
-Lavado::Lavado(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador, string tipo, double costoLavado)
+string tipoLavadoToString(TipoLavado tipo)
 {
-
+    switch (tipo) {
+    case estandar:
+        return "Estandar";
+    case medio:
+        return "Medio";
+    case premium:
+        return "Premium";
+    default:
+        return "Desconocido";
+    }
+}
+Lavado::Lavado(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador,  double costoLavado)
+{
+    this->vehiculo = vehiculo;
+    this->cliente = cliente;
+    this->trabajador = trabajador;
+    this->costoLavado = costoLavado;
+    this->tipo = estandar;
 }
 
 Lavado::~Lavado()
 {
 }
 
-void Lavado::mostrar() {
+void Lavado::mostrar()
+{
     cout << "----------- DETALLES DEL LAVADO -----------" << endl;
-    cout << "Tipo de lavado: " << tipo << endl;
-    cout << "Descripción: " << descripcion << endl;
+    cout << "Tipo de lavado: " << tipoLavadoToString(tipo) << endl;
+
 
     // Mostrar detalles del vehículo
     vehiculo->mostrar();
 
-    // Mostrar detalles del cliente
-    cout << "----------- DATOS DEL CLIENTE ------------" << endl;
-    cout << "ID Cliente: " << cliente->getId() << endl;
-    cout << "Nombre: " << cliente->getNombre() << endl;
-    cout << "Teléfono: " << cliente->getTelefono() << endl;
-
-    // Mostrar detalles del trabajador
+    
+    /*cout << "----------- DATOS DEL CLIENTE ------------" << endl;
+    cliente->mostrar();
+    
     cout << "----------- DATOS DEL TRABAJADOR ----------" << endl;
-    cout << "ID Trabajador: " << trabajador->getId() << endl;
-    cout << "Nombre: " << trabajador->getNombre() << endl;
-    cout << "Teléfono: " << trabajador->getTelefono() << endl;
-    cout << "Cargo: " << trabajador->getCargo() << endl;
-    cout << "Salario: $" << trabajador->getSalario() << endl;
-
+    trabajador->mostrar();
+    */
     cout << "Costo total del lavado: $" << costoLavado << endl;
 }
 
@@ -39,4 +50,24 @@ void Lavado::mostrar() {
 double Lavado::getCostoLavado()
 {
     return costoLavado;
+}
+
+void  Lavado::setTipoLavadoEstandar()
+{
+    tipo = estandar;
+}
+
+void  Lavado::setTipoLavadoMedio()
+{ 
+    tipo = medio;
+}
+
+void Lavado::setTipoLavadoPremium()
+{
+    tipo = premium;
+}
+
+inline string Lavado::encode()
+{
+    return "String encode";
 }

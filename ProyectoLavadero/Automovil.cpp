@@ -3,7 +3,7 @@
 Automovil::Automovil(string placa, string marca, string modelo, int anio, string estado, int numPuertas)
     : Vehiculo(placa, marca, modelo, anio, estado)
 {
-    this->numeroPuertas = numeroPuertas;
+    this->numeroPuertas = numPuertas;
 }
 
 Automovil::~Automovil() {}

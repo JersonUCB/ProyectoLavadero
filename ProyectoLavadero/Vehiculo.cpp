@@ -13,6 +13,26 @@ Vehiculo::~Vehiculo()
 {
 }
 
+string Vehiculo::getMarca()
+{
+	return marca;
+}
+
+string Vehiculo::getEstado()
+{
+	return estado;
+}
+
+string Vehiculo::getPlaca()
+{
+	return placa;
+}
+
+string Vehiculo::getModelo()
+{
+	return modelo;
+}
+
 void Vehiculo::mostrar()
 {
 	cout << "------------INFO VEHICULO--------------" << endl;

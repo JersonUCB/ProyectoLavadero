@@ -151,6 +151,7 @@
     <ClInclude Include="LocalLoader.h" />
     <ClInclude Include="Moto.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="StaticLocalLoader.h" />
     <ClInclude Include="Trabajador.h" />
     <ClInclude Include="Vehiculo.h" />

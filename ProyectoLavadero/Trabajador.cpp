@@ -22,10 +22,8 @@ float Trabajador::getSalario()
 
 void Trabajador::mostrar()
 {
-	cout << "-----> Cliente <-----" << endl;
-	cout << "id: " << id << endl;
-	cout << "nombre: " << nombre << endl;
-	cout << "telefono: " << telefono << endl;
+	cout << "-----> Trabajador <-----" << endl;
+	Persona::mostrar();
 	cout << "Cargo: " << cargo << endl;
 	cout << "Salario: " << salario << endl;
 }

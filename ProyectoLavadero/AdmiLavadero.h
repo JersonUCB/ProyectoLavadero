@@ -41,7 +41,10 @@ private:
 	void showCliente();
 	void showEmployee();
 	void showVehicle();
-
+	void mostrarTrabajadoresPorSalarioAscendente();
+	void buscarVehiculoPorPlaca(string placa);
+	void buscarClientePorID(int id);
+	void cambiarTipoLavadoAPremium();
 
 public:
 	AdmiLavadero();

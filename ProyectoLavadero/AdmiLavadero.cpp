@@ -1,6 +1,5 @@
 #include "AdmiLavadero.h"
-//#include "AdmiLavadero.h"
-#include <algorithm>  // Para incluir la función sort
+#include "QuickSort.h"
 
 void AdmiLavadero::showMenu()
 {
@@ -53,6 +52,41 @@ void AdmiLavadero::showMenu()
 		case 6:
 		{
 		    getTotalProfit();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 10:
+		{
+			mostrarTrabajadoresPorSalarioAscendente();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 12:
+		{
+			string placa;
+			cout << "Ingrese la placa del vehiculo a buscar: ";
+			cin >> placa;
+			buscarVehiculoPorPlaca(placa);
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 13:
+		{
+			int id;
+			cout << "Ingrese el ID del cliente a buscar: ";
+			cin >> id;
+
+			buscarClientePorID(id);
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 14:
+		{
+			cambiarTipoLavadoAPremium();
 			system("pause");
 			system("cls");
 			break;
@@ -138,6 +172,7 @@ AdmiLavadero::~AdmiLavadero()
 
 void AdmiLavadero::run()
 {
+
 	showMenu();
 }
 
@@ -204,39 +239,137 @@ void AdmiLavadero::registerNewClient()
 }
 
 
-void AdmiLavadero::washVehicle() {
-	string placa;
-	cout << "Ingrese la placa del vehiculo a lavar: ";
-	cin >> placa;
+void AdmiLavadero::washVehicle()
+{
+	cout << "Vehiculos disponibles para lavar:" << endl;
+	bool hayVehiculosEnEspera = false;
 
-	auto it = find_if(vehiculos.begin(), vehiculos.end(),
-		[placa](Vehiculo* v) { return v->getPlaca() == placa; });
+	for (Vehiculo* vehiculo : vehiculos) {
+		if (vehiculo->getEstado() == "en espera")
+		{
+			cout << vehiculo->getModelo() << " - " << vehiculo->getPlaca() << " " << vehiculo->getMarca() << endl;
+			hayVehiculosEnEspera = true;
+		}
+	}
 
-	if (it != vehiculos.end()) {
-		(*it)->setEstado("lavado");
+	if (!hayVehiculosEnEspera)
+	{
+		cout << "No hay vehiculos disponibles para lavar." << endl;
+		return;
+	}
 
+	string modeloSeleccionado;
+	cout << "Ingrese el modelo del vehiculo que desea lavar: ";
+	cin.ignore();
+	getline(cin, modeloSeleccionado);
 
-		Trabajador* trabajadorAsignado = trabajadores[0];
+	Vehiculo* vehiculoSeleccionado = nullptr;
 
-		lavados.push_back(new Lavado(*it, cliente, trabajadorAsignado, "tipo_de_lavado", (*it)->calcularCosto()));
+	for (Vehiculo* vehiculo : vehiculos)
+	{
+		if (vehiculo->getEstado() == "en espera" && vehiculo->getModelo() == modeloSeleccionado)
+		{
+			vehiculoSeleccionado = vehiculo;
+			break;
+		}
+	}
 
-		cout << "Vehículo lavado con éxito." << endl;
+	if (vehiculoSeleccionado != nullptr)
+	{
+		vehiculoSeleccionado->mostrar();
+
+		Trabajador* trabajadorAsignado = nullptr;
+		cout << "Seleccione el ID del trabajador para lavar el vehiculo: " << endl;
+		for (int i = 0; i < trabajadores.size(); i++) {
+			cout << "ID trabajador: " << trabajadores[i]->getId() << ". " << trabajadores[i]->getNombre() << endl;
+		}
+
+		int option;
+		cin >> option;
+
+		if (option > 0 && option <= trabajadores.size()) {
+			trabajadorAsignado = trabajadores[option - 1];
+
+			// Selección del cliente
+			Cliente* clienteSeleccionado = nullptr;
+			cout << "Seleccione el ID del cliente para el lavado: " << endl;
+			for (int i = 0; i < clientes.size(); i++) {
+				cout << "ID cliente: " << clientes[i]->getId() << ". " << clientes[i]->getNombre() << endl;
+			}
+
+			cin >> option;
+
+			if (option > 0 && option <= clientes.size()) {
+				clienteSeleccionado = clientes[option - 1];
+
+				// Selección del tipo de lavado
+				int opcionTipoLavado;
+				cout << "Seleccione el tipo de lavado:" << endl;
+				cout << "1. Estandar" << endl;
+				cout << "2. Medio" << endl;
+				cout << "3. Premium" << endl;
+				cin >> opcionTipoLavado;
+
+				// Verificar y cambiar el tipo de lavado seleccionado
+				Lavado* lavadoSeleccionado = new Lavado(vehiculoSeleccionado, cliente, trabajadorAsignado, vehiculoSeleccionado->calcularCosto());
+				switch (opcionTipoLavado) {
+				case 1:
+					// Estándar
+					lavadoSeleccionado->setTipoLavadoEstandar();
+					break;
+				case 2:
+					// Medio
+					lavadoSeleccionado->setTipoLavadoMedio();
+					break;
+				case 3:
+					// Premium
+					lavadoSeleccionado->setTipoLavadoPremium();
+					break;
+				default:
+					cout << "Opcion no valida." << endl;
+					return;
+				}
+
+				vehiculoSeleccionado->setEstado("lavado");
+
+				lavados.push_back(new Lavado(vehiculoSeleccionado, cliente, trabajadorAsignado, vehiculoSeleccionado->calcularCosto()));
+
+				cout << "Trabajador asignado con exito al lavado." << endl;
+				cout << "Vehiculo lavado con exito." << endl;
+			}
+			else {
+				cout << "Opcion no valida." << endl;
+				return;
+			}
+		}
+		else {
+			cout << "Opcion no valida." << endl;
+			return;
+		}
 	}
 	else {
-		cout << "Vehículo no encontrado." << endl;
+		cout << "Vehiculo no encontrado." << endl;
 	}
 }
 
+
 void AdmiLavadero::showWashedVehicles() {
-	for (auto* lavado : lavados) {
-		lavado->mostrar();
+	if (lavados.empty())
+	{
+		cout << "Message: >>> No hay vehiculos lavados aun <<< " << endl;
+	}
+	else 
+	{
+		for (Lavado* lavado : lavados) {
+			lavado->mostrar();
+		}
 	}
 }
 
 void AdmiLavadero::getTotalProfit() {
 	double beneficioTotal = 0;
 
-	for (auto* lavado : lavados) {
+	for (Lavado* lavado : lavados) {
 		beneficioTotal += lavado->getCostoLavado();
 	}
 
@@ -266,5 +399,101 @@ void AdmiLavadero::showVehicle()
 	for (Vehiculo* var : vehiculos)
 	{
 		var->mostrar();
+	}
+}
+
+void AdmiLavadero::mostrarTrabajadoresPorSalarioAscendente()
+{
+	vector<Trabajador*> copiaTrabajadores = trabajadores;
+
+	// Definir un comparador para ordenar los trabajadores por salario
+	auto customComparator = [](Trabajador* a, Trabajador* b)
+	{
+		return a->getSalario() < b->getSalario(); // Orden ascendente por salario
+	};
+
+	// Ordenar el vector de trabajadores por salario utilizando QuickSort
+	QuickSort<Trabajador>::sort(copiaTrabajadores, customComparator);
+
+	cout << "-----> Trabajadores ordenados por salario de manera ascendente <-----" << endl;
+	for (auto trabajador : copiaTrabajadores) {
+		trabajador->mostrar();
+		cout << "------------------------------" << endl;
+	}
+	
+}
+
+
+void AdmiLavadero::buscarVehiculoPorPlaca(string placa)
+{
+	Vehiculo* encontrado = nullptr;
+
+	for (auto vehiculo : vehiculos)
+	{
+		if (vehiculo->getPlaca() == placa)
+		{
+			encontrado = vehiculo;
+			break;
+		}
+	}
+	// Verificar si se encontro el vehiculo
+	if (encontrado != nullptr)
+	{
+		// Mostrar los detalles del vehiculo encontrado
+		encontrado->mostrar();
+
+		// Verificar si el vehiculo esta lavado o en espera
+		if (encontrado->getEstado() == "en espera")
+		{
+			cout << "El vehiculo aun no ha sido lavado." << endl;
+		}
+		else
+		{
+			cout << "El vehiculo ya ha sido lavado." << endl;
+		}
+	}
+	else {
+		cout << "No se encontro ningun vehiculo con la placa ingresada." << endl;
+	}
+}
+
+void AdmiLavadero::buscarClientePorID(int id)
+{
+	bool encontrado = false;
+	for (auto cliente : clientes)
+	{
+		if (cliente->getId() == id)
+		{
+			cliente->mostrar();
+			encontrado = true;
+			break;
+		}
+	}
+	if (!encontrado) {
+		cout << "Cliente no encontrado." << endl;
+	}
+}
+
+void AdmiLavadero::cambiarTipoLavadoAPremium()
+{
+	// Mostrar lavados existentes para elegir uno a cambiar
+	cout << "Lavados existentes:" << endl;
+	for (int i = 0; i < lavados.size(); ++i) {
+		cout << i + 1 << ". ";
+		lavados[i]->mostrar();
+		cout << endl;
+	}
+
+	int opcionLavado;
+	cout << "Seleccione el numero del lavado que desea cambiar a Premium: ";
+	cin >> opcionLavado;
+
+	if (opcionLavado > 0 && opcionLavado <= lavados.size()) {
+		// Cambiar el tipo del lavado seleccionado a Premium
+		lavados[opcionLavado - 1]->setTipoLavadoPremium();
+		cout << "Tipo de lavado cambiado a Premium con exito." << endl;
+	}
+	else {
+		cout << "Opcion no valida." << endl;
 	}
 }
