@@ -3,7 +3,7 @@
 
 class Cliente : public Persona {
 private:
-    string TipoCliente;
+    string TipoCliente;//estandar, premium, platino
 public:
     Cliente(int id, string nombre, string telefono, string tipoCliente);
     ~Cliente();

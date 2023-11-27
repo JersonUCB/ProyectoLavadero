@@ -22,7 +22,6 @@ private:
 	vector<Cliente*> clientes;
 	vector<Trabajador*> trabajadores;
 	vector<Lavado*> lavados;
-	StaticLocalLoader datos;
 	Consola consola;
 
 	Vehiculo* vehiculo;
@@ -41,6 +40,8 @@ private:
 	void showCliente();
 	void showEmployee();
 	void showVehicle();
+	void showClientePremium();
+	void showLavadosInstanciados();
 	void mostrarTrabajadoresPorSalarioAscendente();
 	void buscarVehiculoPorPlaca(string placa);
 	void buscarClientePorID(int id);

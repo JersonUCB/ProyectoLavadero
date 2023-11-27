@@ -1,5 +1,7 @@
 #include "Lavado.h"
-#include "Lavado.h"
+//#include "Lavado.h"
+
+int Lavado::cantidadInstancias = 0;
 
 string tipoLavadoToString(TipoLavado tipo)
 {
@@ -21,6 +23,7 @@ Lavado::Lavado(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador,  do
     this->trabajador = trabajador;
     this->costoLavado = costoLavado;
     this->tipo = estandar;
+    Lavado::cantidadInstancias = Lavado::cantidadInstancias + 1;
 }
 
 Lavado::~Lavado()
@@ -65,6 +68,11 @@ void  Lavado::setTipoLavadoMedio()
 void Lavado::setTipoLavadoPremium()
 {
     tipo = premium;
+}
+
+int Lavado::getCantidadInstancias()
+{
+    return cantidadInstancias;
 }
 
 inline string Lavado::encode()

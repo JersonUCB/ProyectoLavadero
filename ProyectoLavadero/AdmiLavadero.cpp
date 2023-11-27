@@ -56,9 +56,23 @@ void AdmiLavadero::showMenu()
 			system("cls");
 			break;
 		}
+		case 9:
+		{
+			showLavadosInstanciados();
+			system("pause");
+			system("cls");
+			break;
+		}
 		case 10:
 		{
 			mostrarTrabajadoresPorSalarioAscendente();
+			system("pause");
+			system("cls");
+			break;
+		}
+		case 11:
+		{
+			showClientePremium();
 			system("pause");
 			system("cls");
 			break;
@@ -125,14 +139,17 @@ AdmiLavadero::AdmiLavadero()
 	this->trabajador = nullptr;
 	this->costoLavado = 0.01;
 	//StaticLocalLoader
-	trabajadores = datos.vectorTrabajador();
-	clientes = datos.vectorCliente();
-	vehiculos = datos.vectorVehiculo();
+	LocalLoader* localLoader = new StaticLocalLoader();
 
-	automoviles = datos.vectorAutomovil();
-	motos = datos.vectorMoto();
-	camionetas = datos.vectorCamioneta();
+	trabajadores = localLoader->vectorTrabajador();
+	clientes = localLoader->vectorCliente();
+	vehiculos = localLoader->vectorVehiculo();
 
+	automoviles = localLoader->vectorAutomovil();
+	motos = localLoader->vectorMoto();
+	camionetas = localLoader->vectorCamioneta();
+
+	delete localLoader;
 }
 
 AdmiLavadero::AdmiLavadero(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador, double costoLavado)
@@ -400,6 +417,22 @@ void AdmiLavadero::showVehicle()
 	{
 		var->mostrar();
 	}
+}
+
+void AdmiLavadero::showClientePremium()
+{
+	for (Cliente* var : clientes)
+	{
+		if (var->getTipoCliente() == "Premium" || var->getTipoCliente() == "premium")
+		{
+			var->mostrar();
+		}
+	}
+}
+
+void AdmiLavadero::showLavadosInstanciados()
+{
+	cout << "La cantidad de lavados instanciados es: " << Lavado::getCantidadInstancias() << endl;
 }
 
 void AdmiLavadero::mostrarTrabajadoresPorSalarioAscendente()

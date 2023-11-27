@@ -23,6 +23,8 @@ private:
 
 	double costoLavado;
 
+	static int cantidadInstancias;
+
 public:
 	Lavado(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador, double costoLavado);
 	~Lavado();
@@ -35,7 +37,7 @@ public:
 	void setTipoLavadoMedio();
 	void setTipoLavadoPremium();
 	
-
+	static int getCantidadInstancias();
 };
 
 string tipoLavadoToString(TipoLavado tipo);
