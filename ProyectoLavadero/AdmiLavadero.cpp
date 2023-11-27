@@ -71,7 +71,7 @@ void AdmiLavadero::showMenu()
 			cout << "Ingrese el nombre del Trabajador que desea buscar" << endl;
 			cin >> nombre;
 
-			searchWorkersByName(string nombre);
+			searchWorkersByName(nombre);
 			system("pause");
 			system("cls");
 			break;
