@@ -67,9 +67,10 @@ void AdmiLavadero::showMenu()
 
 		case 8:
 		{
+			cin.ignore();
 			string nombre;
 			cout << "Ingrese el nombre del Trabajador que desea buscar" << endl;
-			cin >> nombre;
+			getline(cin, nombre);
 
 			searchWorkersByName(nombre);
 			system("pause");
