@@ -56,6 +56,27 @@ void AdmiLavadero::showMenu()
 			system("cls");
 			break;
 		}
+
+		case 7:
+		{
+			showVehiclesInQueue();
+			system("pause");
+			system("cls");
+			break;
+		}
+
+		case 8:
+		{
+			string nombre;
+			cout << "Ingrese el nombre del Trabajador que desea buscar" << endl;
+			cin >> nombre;
+
+			searchWorkersByName(string nombre);
+			system("pause");
+			system("cls");
+			break;
+		}
+
 		case 9:
 		{
 			showLavadosInstanciados();
@@ -405,6 +426,36 @@ void AdmiLavadero::getTotalProfit() {
 	double beneficioFinal = beneficioTotal * 0.65;
 
 	cout << "El beneficio total es: $" << beneficioFinal << endl;
+}
+
+void AdmiLavadero::showVehiclesInQueue()
+{
+	cout << "Vehiculos en espera:" << endl;
+
+	for (auto* vehiculo : vehiculos) {
+		if (vehiculo->getEstado() == "en espera") {
+			vehiculo->mostrar();
+		}
+	}
+
+	cout << endl;
+}
+
+void AdmiLavadero::searchWorkersByName(string nombre)
+{
+	bool encontrado = false;
+	for (auto trabajador : trabajadores)
+	{
+		if (trabajador->getNombre() == nombre)
+		{
+			trabajador->mostrar();
+			encontrado = true;
+			break;
+		}
+	}
+	if (!encontrado) {
+		cout << "Trabajador no encontrado." << endl;
+	}
 }
 
 void AdmiLavadero::showCliente()

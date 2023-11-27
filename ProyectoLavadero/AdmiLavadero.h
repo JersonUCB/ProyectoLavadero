@@ -36,7 +36,8 @@ private:
 	void washVehicle();
 	void showWashedVehicles();
 	void getTotalProfit();
-
+	void showVehiclesInQueue();
+	void searchWorkersByName(string nombre);
 	void showCliente();
 	void showEmployee();
 	void showVehicle();
