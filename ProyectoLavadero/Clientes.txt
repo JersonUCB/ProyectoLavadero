@@ -1,0 +1,20 @@
+1
+Juan Perez
+123456789
+Estandar
+2
+Maria Rodriguez
+987654321
+Premium
+3
+Carlos Gomez
+555555555
+Estandar
+4
+Laura Torres
+333333333
+Premium
+5
+Pedro Hernandez
+777777777
+Estandar

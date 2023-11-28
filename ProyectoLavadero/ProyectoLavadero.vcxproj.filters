@@ -54,6 +54,9 @@
     <ClCompile Include="Consola.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="TxTLocalLoader.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lavado.h">
@@ -95,5 +98,16 @@
     <ClInclude Include="QuickSort.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="TxTLocalLoader.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Trabajadores.txt" />
+    <Text Include="Clientes.txt" />
+    <Text Include="Motos.txt" />
+    <Text Include="Automoviles.txt" />
+    <Text Include="Camionetas.txt" />
+    <Text Include="Vehiculos.txt" />
   </ItemGroup>
 </Project>

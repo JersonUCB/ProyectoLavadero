@@ -211,8 +211,8 @@ AdmiLavadero::~AdmiLavadero()
 
 void AdmiLavadero::run()
 {
-	//StaticLocalLoader
 	LocalLoader* localLoader = new StaticLocalLoader();
+	//LocalLoader* localLoader = new TxTLocalLoader();
 
 	trabajadores = localLoader->vectorTrabajador();
 	clientes = localLoader->vectorCliente();

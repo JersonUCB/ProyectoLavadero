@@ -139,6 +139,7 @@
     <ClCompile Include="ProyectoLavadero.cpp" />
     <ClCompile Include="StaticLocalLoader.cpp" />
     <ClCompile Include="Trabajador.cpp" />
+    <ClCompile Include="TxTLocalLoader.cpp" />
     <ClCompile Include="Vehiculo.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +155,16 @@
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="StaticLocalLoader.h" />
     <ClInclude Include="Trabajador.h" />
+    <ClInclude Include="TxTLocalLoader.h" />
     <ClInclude Include="Vehiculo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Automoviles.txt" />
+    <Text Include="Camionetas.txt" />
+    <Text Include="Clientes.txt" />
+    <Text Include="Motos.txt" />
+    <Text Include="Trabajadores.txt" />
+    <Text Include="Vehiculos.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,6 +9,7 @@
 #include "Moto.h"
 #include "Camioneta.h"
 #include "StaticLocalLoader.h"
+#include "TxTLocalLoader.h"
 #include "Consola.h"
 
 class AdmiLavadero

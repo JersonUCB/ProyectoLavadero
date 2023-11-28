@@ -1,0 +1,30 @@
+ABC123
+Toyota
+Hilux
+2022
+en espera
+true
+DEF456
+Ford
+Ranger
+2023
+en espera
+false
+GHI789
+Chevrolet
+Colorado
+2021
+en espera
+true
+KJF345
+NISSAN
+Frontier
+2021
+en espera
+true
+GHI789
+Mitsubishi
+Triton
+2021
+en espera
+false

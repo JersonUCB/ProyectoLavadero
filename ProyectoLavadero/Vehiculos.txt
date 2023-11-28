@@ -1,0 +1,18 @@
+Automovil
+JKL012 Honda Civic 2022 lavado 2
+MNO345 Ford Focus 2023 en espera 2
+PQR678 Toyota Corolla 2021 lavado4
+STU901 Chevrolet Cruze 2022 en espera 4
+VWX234 Nissan Rogue 2023 lavado 5
+Camioneta
+ABC123 Toyota Hilux 2022 en espera true
+DEF456 Ford Ranger 2023 en espera false
+GHI789 Chevrolet Colorado 2021 en espera true
+KJF345 NISSANFrontier2021en esperatrue
+GHI789 Mitsubishi Triton 2021 en espera false
+Moto
+ABC001 Honda CBR300 2022 en espera true
+DEF002 Yamaha YZF-R6 2023 lavado false
+GHI003 Suzuki GSX-R750 2021 en espera true
+JKL004 Kawasaki Ninja650 2022 lavado false
+MNO005 Ducati Monster821 2023 en espera true

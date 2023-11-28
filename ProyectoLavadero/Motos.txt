@@ -1,0 +1,30 @@
+ABC001
+Honda
+CBR300
+2022
+en espera
+true
+DEF002
+Yamaha
+YZF-R6
+2023
+lavado
+false
+GHI003
+Suzuki
+GSX-R750
+2021
+en espera
+true
+JKL004
+Kawasaki
+Ninja650
+2022
+lavado
+false
+MNO005
+Ducati
+Monster821
+2023
+en espera
+true

@@ -1,0 +1,25 @@
+1
+AnaGonzalez
+111111111
+Lavador
+1500
+2
+CarlosRodriguez
+222222222
+Recepcionista
+1200
+3
+Elena
+333333333
+encargado de Turno
+2500
+4
+MarioLopez
+444444444
+Asistente de Limpieza
+1100
+5
+LuisaMartínez
+555555555
+Supervisor
+3000

@@ -1,0 +1,29 @@
+JKL012
+Honda
+Civic
+2022
+lavado
+2
+MNO345 
+Ford
+Focus
+2023
+en espera
+2
+PQR678
+Toyota
+Corolla
+2021
+lavado4
+STU901
+Chevrolet
+Cruze
+2022
+en espera
+4
+VWX234
+Nissan
+Rogue
+2023
+lavado
+5
