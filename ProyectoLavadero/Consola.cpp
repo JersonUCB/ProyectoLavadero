@@ -47,7 +47,7 @@ void Consola::showMenu()
 	cout << "5. Mostrar todos los datos de los vehiculos que se han lavado" << endl;
 	cout << "6. Obtener el beneficio total" << endl;
 	cout << "7. Mostrar los datos de los vehiculos que estan en espera" << endl;
-	cout << "8.	Buscar Trabajadores segun su nombre" << endl;
+	cout << "8. Buscar trabajadores segun su nombre" << endl;
 	cout << "9. Mostrar la cantidad de lavados instanciados" << endl;
 	cout << "10. Mostrar todos los trabajadores segun su salario de manera ascendente" << endl;
 	cout << "11. Mostrar clientes Premium" << endl;

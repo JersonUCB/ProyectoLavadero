@@ -40,12 +40,12 @@ void Lavado::mostrar()
     vehiculo->mostrar();
 
     
-    /*cout << "----------- DATOS DEL CLIENTE ------------" << endl;
+    cout << "----------- DATOS DEL CLIENTE ------------" << endl;
     cliente->mostrar();
     
     cout << "----------- DATOS DEL TRABAJADOR ----------" << endl;
     trabajador->mostrar();
-    */
+    
     cout << "Costo total del lavado: $" << costoLavado << endl;
 }
 
@@ -53,6 +53,11 @@ void Lavado::mostrar()
 double Lavado::getCostoLavado()
 {
     return costoLavado;
+}
+
+void Lavado::setcostoLavado(int costo)
+{
+    this->costoLavado = costo;
 }
 
 void  Lavado::setTipoLavadoEstandar()

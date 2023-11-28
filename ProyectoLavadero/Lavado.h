@@ -33,6 +33,7 @@ public:
 	void mostrar();
 	double getCostoLavado();
 
+	void setcostoLavado(int costo);
 	void setTipoLavadoEstandar();
 	void setTipoLavadoMedio();
 	void setTipoLavadoPremium();

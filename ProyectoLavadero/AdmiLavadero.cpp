@@ -351,19 +351,24 @@ void AdmiLavadero::LavarVehiculo()
 				cin >> opcionTipoLavado;
 
 				// Verificar y cambiar el tipo de lavado seleccionado
-				Lavado* lavadoSeleccionado = new Lavado(vehiculoSeleccionado, cliente, trabajadorAsignado, vehiculoSeleccionado->calcularCosto());
+				//Lavado* lavadoSeleccionado = new Lavado(vehiculoSeleccionado, cliente, trabajadorAsignado, 0);
+				Lavado* lavadoSeleccionado = new Lavado(vehiculoSeleccionado, clienteSeleccionado, trabajadorAsignado, 0);
+
 				switch (opcionTipoLavado) {
 				case 1:
 					// Estándar
 					lavadoSeleccionado->setTipoLavadoEstandar();
+					lavadoSeleccionado->setcostoLavado(10);
 					break;
 				case 2:
 					// Medio
 					lavadoSeleccionado->setTipoLavadoMedio();
+					lavadoSeleccionado->setcostoLavado(15);
 					break;
 				case 3:
 					// Premium
 					lavadoSeleccionado->setTipoLavadoPremium();
+					lavadoSeleccionado->setcostoLavado(20);
 					break;
 				default:
 					cout << "Opcion no valida." << endl;
@@ -372,7 +377,8 @@ void AdmiLavadero::LavarVehiculo()
 
 				vehiculoSeleccionado->setEstado("lavado");
 
-				lavados.push_back(new Lavado(vehiculoSeleccionado, cliente, trabajadorAsignado, vehiculoSeleccionado->calcularCosto()));
+				//lavados.push_back(new Lavado(vehiculoSeleccionado, cliente, trabajadorAsignado, vehiculoSeleccionado->calcularCosto()));
+				lavados.push_back(lavadoSeleccionado);
 
 				cout << "Trabajador asignado con exito al lavado." << endl;
 				cout << "Vehiculo lavado con exito." << endl;
@@ -422,12 +428,12 @@ void AdmiLavadero::MostrarVehiculosEnEspera()
 {
 	cout << "Vehiculos en espera:" << endl;
 
-	for (auto* vehiculo : vehiculos) {
+	for (auto* vehiculo : vehiculos)
+	{
 		if (vehiculo->getEstado() == "en espera") {
 			vehiculo->mostrar();
 		}
 	}
-
 	cout << endl;
 }
 
