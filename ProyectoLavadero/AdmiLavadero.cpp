@@ -12,7 +12,7 @@ void AdmiLavadero::showMenu()
 		{
 		case 1:
 		{
-			registerNewVehicle();
+			RegistrarVehiculo();
 			system("pause");
 			system("cls");
 			break;
@@ -20,7 +20,7 @@ void AdmiLavadero::showMenu()
 
 		case 2:
 		{
-			registerNewEmployee();
+			RegistrarEmpleado();
 			system("pause");
 			system("cls");
 			break;
@@ -28,7 +28,7 @@ void AdmiLavadero::showMenu()
 
 		case 3:
 		{
-			registerNewClient();
+			RegistrarNuevoCliente();
 			system("pause");
 			system("cls");
 			break;
@@ -37,21 +37,21 @@ void AdmiLavadero::showMenu()
 
 		case 4:
 		{
-			washVehicle();
+			LavarVehiculo();
 			system("pause");
 			system("cls");
 			break;
 		}
 		case 5:
 		{
-			showWashedVehicles();
+			MostrarVehiculosLavados();
 			system("pause");
 			system("cls");
 			break;
 		}
 		case 6:
 		{
-		    getTotalProfit();
+		    ObtenerBeneficioTotal();
 			system("pause");
 			system("cls");
 			break;
@@ -59,7 +59,7 @@ void AdmiLavadero::showMenu()
 
 		case 7:
 		{
-			showVehiclesInQueue();
+			MostrarVehiculosEnEspera();
 			system("pause");
 			system("cls");
 			break;
@@ -72,7 +72,7 @@ void AdmiLavadero::showMenu()
 			cout << "Ingrese el nombre del Trabajador que desea buscar" << endl;
 			getline(cin, nombre);
 
-			searchWorkersByName(nombre);
+			BuscarTrabajadorPorNombre(nombre);
 			system("pause");
 			system("cls");
 			break;
@@ -80,7 +80,7 @@ void AdmiLavadero::showMenu()
 
 		case 9:
 		{
-			showLavadosInstanciados();
+			MostrarLavadosInstaciados();
 			system("pause");
 			system("cls");
 			break;
@@ -94,7 +94,7 @@ void AdmiLavadero::showMenu()
 		}
 		case 11:
 		{
-			showClientePremium();
+            MostrarClientesPremium();
 			system("pause");
 			system("cls");
 			break;
@@ -129,21 +129,21 @@ void AdmiLavadero::showMenu()
 		}
 		case 16:
 		{
-			showCliente();
+			MostrarCliente();
 			system("pause");
 			system("cls");
 			break;
 		}
 		case 17:
 		{
-			showEmployee();
+			MostrarEmpleado();
 			system("pause");
 			system("cls");
 			break;
 		}
 		case 18:
 		{
-			showVehicle();
+			MostrarVehiculo();
 			system("pause");
 			system("cls");
 			break;
@@ -227,7 +227,7 @@ void AdmiLavadero::run()
 	showMenu();
 }
 
-void AdmiLavadero::registerNewVehicle() {
+void AdmiLavadero::RegistrarVehiculo() {
 	string placa, marca, modelo, estado;
 	int anio;
 
@@ -273,7 +273,7 @@ void AdmiLavadero::registerNewVehicle() {
 	cout << "Vehiculo registrado con exito." << endl;
 }
 
-void AdmiLavadero::registerNewEmployee()
+void AdmiLavadero::RegistrarEmpleado()
 {
 	Trabajador* trabajador;
 	trabajador = consola.showRegisterNewEmployee();
@@ -281,7 +281,7 @@ void AdmiLavadero::registerNewEmployee()
 	cout << "El trabajador ha sido registrado" << endl;
 }
 
-void AdmiLavadero::registerNewClient()
+void AdmiLavadero::RegistrarNuevoCliente()
 {
 	Cliente* cliente;
 	cliente = consola.showRegisterNewClient();
@@ -290,7 +290,7 @@ void AdmiLavadero::registerNewClient()
 }
 
 
-void AdmiLavadero::washVehicle()
+void AdmiLavadero::LavarVehiculo()
 {
 	cout << "Vehiculos disponibles para lavar:" << endl;
 	bool hayVehiculosEnEspera = false;
@@ -404,7 +404,7 @@ void AdmiLavadero::washVehicle()
 }
 
 
-void AdmiLavadero::showWashedVehicles() {
+void AdmiLavadero::MostrarVehiculosLavados() {
 	if (lavados.empty())
 	{
 		cout << "Message: >>> No hay vehiculos lavados aun <<< " << endl;
@@ -417,7 +417,7 @@ void AdmiLavadero::showWashedVehicles() {
 	}
 }
 
-void AdmiLavadero::getTotalProfit() {
+void AdmiLavadero::ObtenerBeneficioTotal() {
 	double beneficioTotal = 0;
 
 	for (Lavado* lavado : lavados) {
@@ -429,7 +429,7 @@ void AdmiLavadero::getTotalProfit() {
 	cout << "El beneficio total es: $" << beneficioFinal << endl;
 }
 
-void AdmiLavadero::showVehiclesInQueue()
+void AdmiLavadero::MostrarVehiculosEnEspera()
 {
 	cout << "Vehiculos en espera:" << endl;
 
@@ -442,7 +442,7 @@ void AdmiLavadero::showVehiclesInQueue()
 	cout << endl;
 }
 
-void AdmiLavadero::searchWorkersByName(string nombre)
+void AdmiLavadero::BuscarTrabajadorPorNombre(string nombre)
 {
 	bool encontrado = false;
 	for (auto trabajador : trabajadores)
@@ -459,7 +459,7 @@ void AdmiLavadero::searchWorkersByName(string nombre)
 	}
 }
 
-void AdmiLavadero::showCliente()
+void AdmiLavadero::MostrarCliente()
 {
 	for (Cliente* var : clientes)
 	{
@@ -467,7 +467,7 @@ void AdmiLavadero::showCliente()
 	}
 }
 
-void AdmiLavadero::showEmployee()
+void AdmiLavadero::MostrarEmpleado()
 {
 	for (Trabajador* var : trabajadores)
 	{
@@ -475,7 +475,7 @@ void AdmiLavadero::showEmployee()
 	}
 }
 
-void AdmiLavadero::showVehicle()
+void AdmiLavadero::MostrarVehiculo()
 {
 	for (Vehiculo* var : vehiculos)
 	{
@@ -483,7 +483,7 @@ void AdmiLavadero::showVehicle()
 	}
 }
 
-void AdmiLavadero::showClientePremium()
+void AdmiLavadero::MostrarClientesPremium()
 {
 	for (Cliente* var : clientes)
 	{
@@ -494,7 +494,7 @@ void AdmiLavadero::showClientePremium()
 	}
 }
 
-void AdmiLavadero::showLavadosInstanciados()
+void AdmiLavadero::MostrarLavadosInstaciados()
 {
 	cout << "La cantidad de lavados instanciados es: " << Lavado::getCantidadInstancias() << endl;
 }
