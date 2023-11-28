@@ -30,23 +30,24 @@ private:
 	double costoLavado;
 
 	void showMenu();
-	void registerNewVehicle();
-	void registerNewEmployee();
-	void registerNewClient();
-	void washVehicle();
-	void showWashedVehicles();
-	void getTotalProfit();
-	void showVehiclesInQueue();
-	void searchWorkersByName(string nombre);
-	void showCliente();
-	void showEmployee();
-	void showVehicle();
-	void showClientePremium();
-	void showLavadosInstanciados();
+
+	void RegistrarVehiculo();
+	void RegistrarEmpleado();
+	void RegistrarNuevoCliente();
+	void LavarVehiculo();
+	void MostrarVehiculosLavados();
+	void ObtenerBeneficioTotal();
+	void MostrarVehiculosEnEspera();
+	void BuscarTrabajadorPorNombre(string nombre);
+	void MostrarLavadosInstaciados();
 	void mostrarTrabajadoresPorSalarioAscendente();
+	void MostrarClientesPremium();
 	void buscarVehiculoPorPlaca(string placa);
 	void buscarClientePorID(int id);
 	void cambiarTipoLavadoAPremium();
+	void MostrarCliente();
+	void MostrarEmpleado();
+	void MostrarVehiculo();
 
 public:
 	AdmiLavadero();
