@@ -160,18 +160,7 @@ AdmiLavadero::AdmiLavadero()
 	this->cliente = nullptr;
 	this->trabajador = nullptr;
 	this->costoLavado = 0.01;
-	////StaticLocalLoader
-	//LocalLoader* localLoader = new StaticLocalLoader();
 
-	//trabajadores = localLoader->vectorTrabajador();
-	//clientes = localLoader->vectorCliente();
-	//vehiculos = localLoader->vectorVehiculo();
-
-	//automoviles = localLoader->vectorAutomovil();
-	//motos = localLoader->vectorMoto();
-	//camionetas = localLoader->vectorCamioneta();
-
-	//delete localLoader;
 }
 
 AdmiLavadero::AdmiLavadero(Vehiculo* vehiculo, Cliente* cliente, Trabajador* trabajador, double costoLavado)

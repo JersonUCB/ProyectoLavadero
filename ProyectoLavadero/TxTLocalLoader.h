@@ -1,7 +1,6 @@
 #pragma once
 #include "LocalLoader.h"
 #include<fstream>
-//#include<iostream>
 #include<string>
 
 class TxTLocalLoader : public LocalLoader
